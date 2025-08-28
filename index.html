@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- TODO: サイトのタイトルを差し替え -->
+  <title>松田拓丸 | ポートフォリオ</title>
+  
+  <!-- TODO: サイトの説明文を差し替え -->
+  <meta name="description" content="これまでに手がけたデザイン、動画、イラストレーション等のポートフォリオサイトです。">
+  
+  <!-- TODO: 正規のURLに差し替え -->
+  <link rel="canonical" href="https://example.com/">
+  
+  <!-- SEO/OGP Meta Tags -->
+  <!-- TODO: OGP情報を差し替え -->
+  <meta property="og:title" content="松田拓丸 | ポートフォリオ">
+  <meta property="og:description" content="これまでに手がけたデザイン、動画、イラストレーション等のポートフォリオサイトです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/og-image.png">
+  <meta property="og:site_name" content="松田拓丸 ポートフォリオ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="松田拓丸 | ポートフォリオ">
+  <meta name="twitter:description" content="これまでに手がけたデザイン、動画、イラストレーション等のポートフォリオサイトです。">
+  <meta name="twitter:image" content="https://example.com/twitter-card.png">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+  
+  <!-- Favicon / Manifest -->
+  <!-- TODO: ファビコンとマニフェストファイルを生成してパスを差し替え -->
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  
+  <!-- Preload Hero Image -->
+  <!-- TODO: ヒーローイメージのパスを差し替え -->
+  <!-- 変更後 -->
+  <link rel="preload" as="image" href="images/hero-main.jpg" media="(min-width: 768px)">
+  <!-- <link rel="preload" as="image" href="/path/to/hero-image-small.webp" media="(max-width: 767px)"> -->
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "松田拓丸 ポートフォリオ",
+    "description": "これまでに手がけたデザイン、動画、イラストレーション等のポートフォリオサイトです。",
+    "url": "https://example.com/",
+    "author": {
+      "@type": "Person",
+      "name": "松田拓丸"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "CreativeWork",
+          "name": "作品タイトル1",
+          "url": "#works"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "作品タイトル2",
+          "url": "#works"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- CSS -->
+  <style>
+    /* 1. Reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem; /* ヘッダーの高さ分 */
+      font-size: 100%;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeSpeed;
+      line-height: 1.7;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+    }
+
+    img, picture, video, canvas, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    input, button, textarea, select {
+      font: inherit;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    p {
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* 2. Tokens / Custom Properties */
+    :root {
+      /* Colors */
+      --color-primary: #6a32ee;
+      --color-primary-hover: #5829c7;
+      --color-text: #1a1a1a;
+      --color-text-muted: #555;
+      --color-background: #fdfdfd;
+      --color-surface: #ffffff;
+      --color-border: #e0e0e0;
+      --color-accent: #ff3d77;
+      --color-focus-ring: #8c63f7;
+
+      /* Typography */
+      --font-size-xs: 0.75rem;   /* 12px */
+      --font-size-sm: 0.875rem;  /* 14px */
+      --font-size-base: 1rem;     /* 16px */
+      --font-size-md: 1.125rem;  /* 18px */
+      --font-size-lg: 1.5rem;    /* 24px */
+      --font-size-xl: 2.25rem;   /* 36px */
+      --font-size-xxl: 3rem;     /* 48px */
+      --font-weight-normal: 400;
+      --font-weight-bold: 700;
+
+      /* Spacing */
+      --space-xs: 0.25rem;  /* 4px */
+      --space-sm: 0.5rem;   /* 8px */
+      --space-md: 1rem;     /* 16px */
+      --space-lg: 2rem;     /* 32px */
+      --space-xl: 4rem;     /* 64px */
+      --space-xxl: 8rem;    /* 128px */
+
+      /* Others */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --z-index-header: 100;
+      --z-index-modal: 1000;
+      --transition-base: 0.2s ease-in-out;
+    }
+
+    /* 3. Base Styles */
+    body {
+      background-color: var(--color-background);
+      color: var(--color-text);
+      transition: background-color var(--transition-base), color var(--transition-base);
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cpath fill='%23e0e0e0' d='M20 20.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z'/%3e%3c/svg%3e");
+    }
+
+    /* 4. Layout */
+    .l-container {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--space-md);
+      padding-right: var(--space-md);
+    }
+
+    .l-section {
+      padding-top: var(--space-xl);
+      padding-bottom: var(--space-xl);
+    }
+    @media (min-width: 768px) {
+      .l-section {
+        padding-top: var(--space-xxl);
+        padding-bottom: var(--space-xxl);
+      }
+    }
+
+    .l-section__title {
+      font-size: var(--font-size-xl);
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .l-grid {
+      display: grid;
+      gap: var(--space-md);
+    }
+    @media (min-width: 768px) {
+      .l-grid--2-cols { grid-template-columns: repeat(2, 1fr); }
+      .l-grid--3-cols { grid-template-columns: repeat(3, 1fr); }
+      .l-grid--4-cols { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* 5. Components */
+    /* Skip Link */
+    .c-skip-link {
+      position: absolute;
+      top: -1000px;
+      left: 0;
+      background-color: var(--color-primary);
+      color: var(--color-surface);
+      padding: var(--space-sm) var(--space-md);
+      z-index: var(--z-index-modal);
+    }
+    .c-skip-link:focus {
+      top: 0;
+    }
+
+    /* Header */
+    .c-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: rgba(253, 253, 253, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: var(--z-index-header);
+      transition: background-color var(--transition-base), border-color var(--transition-base);
+    }
+    .c-header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+    }
+    .c-header__logo {
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-bold);
+    }
+    .c-header__nav ul {
+      display: flex;
+      gap: var(--space-lg);
+    }
+    .c-header__nav-link {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      transition: color var(--transition-base);
+    }
+    .c-header__nav-link:hover,
+    .c-header__nav-link:focus-visible {
+      color: var(--color-primary);
+    }
+
+    /* Theme Toggle Button */
+    .c-theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-text);
+      padding: var(--space-xs);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .c-theme-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    .c-theme-toggle .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .dark-theme .c-theme-toggle .icon-sun { display: block; }
+    .dark-theme .c-theme-toggle .icon-moon { display: none; }
+    .c-theme-toggle .icon-sun { display: none; }
+    .c-theme-toggle .icon-moon { display: block; }
+
+    /* Hero Section */
+    .c-hero {
+      text-align: center;
+      padding: var(--space-xl) 0;
+    }
+    .c-hero__title {
+      font-size: var(--font-size-xxl);
+      margin-bottom: var(--space-md);
+    }
+    .c-hero__subtitle {
+      font-size: var(--font-size-md);
+      color: var(--color-text-muted);
+    }
+    .c-hero__image-wrapper {
+        margin-top: var(--space-lg);
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        background-color: var(--color-border);
+    }
+    .c-hero__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Works Section */
+    .c-works__filter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+    .c-filter-chip {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: 999px;
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .c-filter-chip:hover {
+      background-color: var(--color-primary);
+      color: var(--color-surface);
+      border-color: var(--color-primary);
+    }
+    .c-filter-chip[aria-pressed="true"] {
+      background-color: var(--color-primary);
+      color: var(--color-surface);
+      border-color: var(--color-primary);
+    }
+
+    /* Card */
+    .c-card {
+      background-color: var(--color-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      display: none; /* JSで表示を制御 */
+      flex-direction: column;
+    }
+    .c-card[data-modal-src] {
+      cursor: pointer;
+    }
+    .c-card.is-visible {
+      display: flex;
+    }
+    .c-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .c-card__image-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background-color: var(--color-border);
+    }
+    .c-card__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .c-card__body {
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .c-card__title {
+      font-size: var(--font-size-md);
+      margin-bottom: var(--space-xs);
+    }
+    .c-card__meta {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-sm);
+    }
+    .c-card__description {
+      font-size: var(--font-size-sm);
+    }
+    .c-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+    .c-card__tag {
+      background-color: var(--color-background);
+      border-radius: var(--radius-sm);
+      padding: 2px 8px;
+      font-size: var(--font-size-xs);
+    }
+    .c-card__cta {
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      display: inline-block;
+      margin-top: auto; /* Pushes to the bottom */
+      padding-top: var(--space-md); /* Add some space above */
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+      cursor: pointer;
+    }
+
+    /* YouTube Section */
+    .c-youtube-embed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .c-youtube-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    /* Music Section */
+    .c-music-player {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* News Section */
+    .c-news-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .c-news-item {
+      display: flex;
+      gap: var(--space-lg);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .c-news-item:first-child {
+      padding-top: 0;
+    }
+    .c-news-item:last-child {
+      border-bottom: none;
+    }
+    .c-news-item__date {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+    .c-news-item__title {
+      font-size: var(--font-size-base);
+    }
+
+    /* Contact Form */
+    .c-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .c-form__group {
+      margin-bottom: var(--space-md);
+    }
+    .c-form__label {
+      display: block;
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-sm);
+    }
+    .c-form__input,
+    .c-form__textarea {
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background-color: var(--color-surface);
+      color: var(--color-text);
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+    .c-form__input:focus,
+    .c-form__textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-focus-ring);
+    }
+    .c-form__textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .c-form__button {
+      background-color: var(--color-primary);
+      color: var(--color-surface);
+      border: none;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-md);
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+      transition: background-color var(--transition-base);
+    }
+    .c-form__button:hover {
+      background-color: var(--color-primary-hover);
+    }
+    .c-form__message {
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      display: none;
+    }
+    .c-form__message--success {
+      background-color: #d1fae5;
+      color: #065f46;
+      display: block;
+    }
+    .c-form__message--error {
+      background-color: #fee2e2;
+      color: #991b1b;
+      display: block;
+    }
+
+    /* Footer */
+    .c-footer {
+      background-color: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-lg) 0;
+      text-align: center;
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+    }
+
+    /* Modal */
+    .c-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: var(--z-index-modal);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-base), visibility var(--transition-base);
+    }
+    .c-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .c-modal__content {
+      background-color: var(--color-surface);
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform var(--transition-base);
+    }
+    .c-modal.is-open .c-modal__content {
+      transform: scale(1);
+    }
+    .c-modal__close-btn {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-xs);
+    }
+    .c-modal__image {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    /* 6. Utility */
+    .u-sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* 7. Dark Theme */
+    .dark-theme {
+      --color-primary: #8c63f7;
+      --color-primary-hover: #a07ef9;
+      --color-text: #f0f0f0;
+      --color-text-muted: #a0a0a0;
+      --color-background: #121212;
+      --color-surface: #1e1e1e;
+      --color-border: #333;
+      --color-accent: #fde047; /* Yellow accent color */
+      --color-focus-ring: #6a32ee;
+    }
+    .dark-theme body {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cpath fill='%23333' d='M20 20.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z'/%3e%3c/svg%3e");
+    }
+    .dark-theme .c-header {
+      background-color: rgba(30, 30, 30, 0.8);
+    }
+    .dark-theme .c-theme-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .dark-theme .c-form__message--success {
+      background-color: #064e3b;
+      color: #a7f3d0;
+    }
+    .dark-theme .c-form__message--error {
+      background-color: #7f1d1d;
+      color: #fecaca;
+    }
+    /* Apply accent color to specific elements in dark mode */
+    .dark-theme .c-hero__title,
+    .dark-theme .l-section__title,
+    .dark-theme .c-card__title {
+      color: var(--color-accent);
+    }
+    .dark-theme .c-header__logo,
+    .dark-theme .c-card__cta,
+    .dark-theme .c-header__nav-link:hover,
+    .dark-theme .c-header__nav-link:focus-visible {
+      color: var(--color-primary);
+    }
+    .dark-theme .c-filter-chip {
+      background-color: transparent;
+      border-color: var(--color-text-muted);
+      color: var(--color-text-muted);
+    }
+    .dark-theme .c-filter-chip:hover {
+      background-color: var(--color-primary);
+      color: var(--color-surface);
+      border-color: var(--color-primary);
+    }
+    .dark-theme .c-filter-chip[aria-pressed="true"] {
+      background-color: var(--color-accent);
+      color: var(--color-background);
+      border-color: var(--color-accent);
+    }
+    .dark-theme .c-form__button {
+      background-color: var(--color-accent);
+      color: #121212;
+    }
+    .dark-theme .c-form__button:hover {
+      background-color: #facc15; /* Darker yellow on hover */
+    }
+  
+    /* 2.5 Accent Background Layers (added) */
+    .c-bg {
+      position: fixed;
+      inset: -10vh;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(40% 40% at 10% 10%, rgba(106, 50, 238, 0.18), transparent 60%),
+        radial-gradient(40% 40% at 90% 15%, rgba(255, 61, 119, 0.12), transparent 60%),
+        radial-gradient(50% 50% at 50% 100%, rgba(56, 189, 248, 0.10), transparent 60%);
+    }
+    .c-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0 1px, transparent 1px 24px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0 1px, transparent 1px 24px);
+      mix-blend-mode: overlay;
+      opacity: 0.35;
+    }
+
+    /* Soft per-section vignettes */
+    .l-section { position: relative; }
+    .l-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(600px 300px at 8% 0%, rgba(106, 50, 238, 0.10), transparent 60%),
+        radial-gradient(500px 250px at 92% 100%, rgba(255, 61, 119, 0.08), transparent 60%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Hero glow ring */
+    .c-hero__image-wrapper { position: relative; }
+    .c-hero__image-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: radial-gradient(60% 60% at 50% 20%, rgba(106, 50, 238, 0.25), transparent 60%);
+      filter: blur(12px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Dark theme tweaks */
+    .dark-theme .c-bg {
+      background:
+        radial-gradient(40% 40% at 12% 12%, rgba(140, 99, 247, 0.25), transparent 60%),
+        radial-gradient(40% 40% at 88% 20%, rgba(253, 224, 71, 0.18), transparent 60%),
+        radial-gradient(50% 50% at 50% 100%, rgba(34, 197, 94, 0.10), transparent 60%);
+    }
+    .dark-theme .c-bg::after {
+      background:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 24px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 24px);
+      opacity: 0.25;
+    }
+    .dark-theme .l-section::before {
+      background:
+        radial-gradient(600px 300px at 8% 0%, rgba(140, 99, 247, 0.18), transparent 60%),
+        radial-gradient(500px 250px at 92% 100%, rgba(253, 224, 71, 0.10), transparent 60%);
+    }
+    .dark-theme .c-hero__image-wrapper::before {
+      background: radial-gradient(60% 60% at 50% 20%, rgba(140, 99, 247, 0.35), transparent 60%);
+    }
+
+    /* Respect reduced motion (no animations added, but keep placeholder for future) */
+    @media (prefers-reduced-motion: reduce) {
+      .c-bg { will-change: auto; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="c-bg" aria-hidden="true"></div>
+
+
+  <a href="#main" class="c-skip-link">メインコンテンツへスキップ</a>
+
+  <header class="c-header">
+    <div class="l-container c-header__inner">
+      <!-- TODO: ロゴのテキストを差し替え -->
+      <a href="#" class="c-header__logo">松田拓丸</a>
+
+      <div style="display: flex; align-items: center; gap: var(--space-lg);">
+        <nav class="c-header__nav" aria-label="メインナビゲーション">
+          <ul>
+            <li><a href="#about" class="c-header__nav-link">About</a></li>
+            <li><a href="#works" class="c-header__nav-link">Works</a></li>
+            <li><a href="#news" class="c-header__nav-link">News</a></li>
+            <li><a href="#contact" class="c-header__nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button class="c-theme-toggle" id="theme-toggle" title="テーマを切り替え">
+          <span class="u-sr-only">ライト/ダークテーマを切り替える</span>
+          <svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero Section -->
+    <section class="c-hero l-section">
+      <div class="l-container">
+        <!-- TODO: ヒーローセクションのタイトルとサブタイトルを差し替え -->
+        <h1 class="c-hero__title">ポートフォリオ</h1>
+        <p class="c-hero__subtitle">これまでに手がけたデザイン、動画、イラストレーション等のポートフォリオサイトです。</p>
+        <div class="c-hero__image-wrapper">
+        <!-- TODO: ヒーローイメージを差し替え -->
+        <img src="images/hero-main.jpg" 
+            alt="松田拓丸のオリジナルTシャツデザイン" 
+           width="1600" height="900" 
+           class="c-hero__image"
+           loading="eager" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="l-section">
+      <div class="l-container">
+        <h2 class="l-section__title">About</h2>
+        <!-- TODO: 自己紹介文を差し替え -->
+        <p style="max-width: 700px; margin: 0 auto; text-align: center;">
+          はじめまして、松田拓丸です。都内を拠点に、フリーランスのクリエイターとして活動しています。デザイン、動画制作、イラストレーションなど、ジャンルを問わず様々なクリエイティブを手掛けています。一つ一つのご依頼に真摯に向き合い、心に残る作品を創り上げることを目指しています。
+        </p>
+      </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="l-section">
+      <div class="l-container">
+        <h2 class="l-section__title">Works</h2>
+
+        <div class="c-works__filter" id="works-filter" role="tablist" aria-label="制作物カテゴリ">
+          <button class="c-filter-chip" role="tab" data-filter="all" aria-pressed="true">すべて</button>
+          <button class="c-filter-chip" role="tab" data-filter="ads" aria-pressed="false">広告</button>
+          <button class="c-filter-chip" role="tab" data-filter="illust" aria-pressed="false">イラスト</button>
+          <button class="c-filter-chip" role="tab" data-filter="web" aria-pressed="false">Webサイト</button>
+          <button class="c-filter-chip" role="tab" data-filter="video" aria-pressed="false">動画</button>
+        </div>
+
+        <div class="l-grid l-grid--3-cols" id="works-grid">
+          
+          <!-- TODO: ここから下の作品カードを差し替え・追加・削除 -->
+          
+          <!-- 作品カード 1 (広告) -->
+          <article class="c-card" 
+                   data-tags="ads" 
+                   data-modal-src="images/poster01.jpeg"
+                   data-modal-alt="フェスティバル広告ポスターの詳細画像">
+            <div class="c-card__image-wrapper">
+              <img src="images/poster01_thumbnail.jpeg" alt="フェスティバル広告ポスターのサムネイル" width="400" height="225" loading="lazy" decoding="async" class="c-card__image">
+            </div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">Zepp Shinjuku音楽フェス広告</h3>
+              <p class="c-card__meta">役割: アートディレクション, デザイン | 2025.06</p>
+              <div class="c-card__tags">
+                <span class="c-card__tag">広告</span>
+              </div>
+              <p class="c-card__description">音楽フェスのキービジュアルとCM動画を制作しました。</p>
+              <button class="c-card__cta">拡大表示</button>
+            </div>
+          </article>
+          
+          <!-- 作品カード 2 (イラスト) -->
+          <article class="c-card" 
+                   data-tags="illust"
+                   data-modal-src="images/illust01.PNG"
+                   data-modal-alt="VTuberキービジュアルの詳細画像">
+            <div class="c-card__image-wrapper">
+              <img src="images/illust01.PNG" alt="VTuberキービジュアルのサムネイル" width="400" height="225" loading="lazy" decoding="async" class="c-card__image">
+            </div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">オリジナルMV用メインビジュアル</h3>
+              <p class="c-card__meta">役割: イラストレーション | 2025.08</p>
+              <div class="c-card__tags">
+                <span class="c-card__tag">イラスト</span>
+              </div>
+              <p class="c-card__description">ミュージックビデオ用のメインビジュアルを担当しました。</p>
+              <button class="c-card__cta">拡大表示</button>
+            </div>
+          </article>
+
+          <!-- 作品カード 3 (Webサイト) -->
+          <article class="c-card" data-tags="web">
+            <div class="c-card__image-wrapper">
+              <img src="images/website01_thumbnail.jpg" alt="所属事務所公式サイトのサムネイル" width="400" height="225" loading="lazy" decoding="async" class="c-card__image">
+            </div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">企業VTuber公式サイト</h3>
+              <p class="c-card__meta">役割: デザイン | 2025.07</p>
+              <div class="c-card__tags">
+                <span class="c-card__tag">Webサイト</span>
+              </div>
+              <p class="c-card__description">VTuber事務所の公式サイトデザイン制作。</p>
+              <!-- TODO: 実際のサイトURLに差し替え -->
+              <a href="https://kagiya-aoba.com/" target="_blank" rel="noopener noreferrer" class="c-card__cta">サイトを見る</a>
+            </div>
+          </article>
+
+          <!-- 作品カード 4 (動画) -->
+          <article class="c-card" data-tags="video">
+            <div class="c-card__image-wrapper">
+              <!-- TODO: MVのサムネイル画像に差し替え -->
+              <img src="images/youtubemv_thumbnail.png" alt="オリジナルMV「唱」のサムネイル" width="400" height="225" loading="lazy" decoding="async" class="c-card__image">
+            </div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">オリジナルMV「Holiday∞Holiday」</h3>
+              <p class="c-card__meta">役割: イラスト, 動画 | 2025.04</p>
+              <div class="c-card__tags">
+                <span class="c-card__tag">動画</span>
+              </div>
+              <p class="c-card__description">イラスト、素材作成、動画編集まで全て自身で制作したオリジナルミュージックビデオです。</p>
+              <!-- TODO: YouTube動画のURLに差し替え -->
+              <a href="https://youtu.be/CPnk-_3FmnA" target="_blank" rel="noopener noreferrer" class="c-card__cta">YouTubeで見る</a>
+            </div>
+          </article>
+          
+          <!-- 作品カード 5 (イラスト) -->
+          <article class="c-card" 
+                   data-tags="illust"
+                   data-modal-src="images/funillust01.jpg"
+                   data-modal-alt="ファンアートの詳細画像">
+            <div class="c-card__image-wrapper">
+              <img src="images/funillust01_thumbnail.jpg" alt="ファンアートのサムネイル" width="400" height="225" loading="lazy" decoding="async" class="c-card__image">
+            </div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">ファンアート</h3>
+              <p class="c-card__meta">役割: イラストレーション | 2025.03</p>
+              <div class="c-card__tags">
+                <span class="c-card__tag">イラスト</span>
+              </div>
+              <p class="c-card__description">趣味で描いたファンアートです。キャラクターの魅力を引き出すことを意識しました。</p>
+              <button class="c-card__cta">拡大表示</button>
+            </div>
+          </article>
+          
+          <!-- 作品カード 6 (YouTube運営) -->
+          <article class="c-card" data-tags="web">
+            <div class="c-card__image-wrapper">
+              <img src="images/youtube_corp_thumbnail.jpg" alt="企業YouTubeチャンネルのサムネイル" width="400" height="225" loading="lazy" decoding="async" class="c-card__image">
+            </div>
+            <div class="c-card__body">
+              <h3 class="c-card__title">企業YouTubeチャンネル運営</h3>
+              <p class="c-card__meta">役割: 企画, 運用 | 2025.4</p>
+              <div class="c-card__tags">
+                <span class="c-card__tag">Webサイト</span>
+              </div>
+              <p class="c-card__description">企業様のYouTubeチャンネルの立ち上げから運用までを担当。企画立案、運用管理などを一貫して行いました。</p>
+              <a href="https://www.youtube.com/@aoba_anisophia/videos" target="_blank" rel="noopener noreferrer" class="c-card__cta">チャンネルを見る</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="l-section">
+      <div class="l-container">
+        <h2 class="l-section__title">個人YouTube</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto var(--space-lg) auto; color: var(--color-text-muted);">
+          イラスト制作から動画編集、SNS運用まで全てをセルフプロデュース。活動の集大成として、チャンネル登録者1万人、メンバーシップ60人を達成。
+        </p>
+        <div class="c-youtube-embed">
+          <!-- TODO: YouTube動画のID (dQw4w9WgXcQ の部分) を差し替え -->
+          <iframe 
+            src="https://www.youtube.com/embed/qf3HgaMxj6w" 
+            title="YouTube動画プレイヤー" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="l-section">
+      <div class="l-container">
+        <h2 class="l-section__title">News</h2>
+        <ul class="c-news-list">
+          <!-- TODO: ここから下のお知らせを差し替え・追加・削除 -->
+          <li class="c-news-item">
+            <time datetime="2025-08-15" class="c-news-item__date">2025.08.28</time>
+            <p class="c-news-item__title">ポートフォリオサイトを公開しました。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="l-section">
+      <div class="l-container">
+        <h2 class="l-section__title">Contact</h2>
+        <p style="text-align: center; margin-bottom: var(--space-lg);">ご依頼・ご相談はこちらからお気軽にご連絡ください。</p>
+        
+        <form class="c-form" id="contact-form" novalidate>
+          <div class="c-form__group">
+            <label for="name" class="c-form__label">お名前</label>
+            <input type="text" id="name" name="name" class="c-form__input" required>
+          </div>
+          <div class="c-form__group">
+            <label for="email" class="c-form__label">メールアドレス</label>
+            <input type="email" id="email" name="email" class="c-form__input" required>
+          </div>
+          <div class="c-form__group">
+            <label for="message" class="c-form__label">お問い合わせ内容</label>
+            <textarea id="message" name="message" class="c-form__textarea" required></textarea>
+          </div>
+          <button type="submit" class="c-form__button">送信する</button>
+          <div id="form-message" class="c-form__message" role="alert"></div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="c-footer">
+    <div class="l-container">
+      <!-- TODO: コピーライトの年と名前を差し替え -->
+      <p>&copy; 2025 松田拓丸. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="c-modal" id="image-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="c-modal__content" role="document">
+      <h3 id="modal-title" class="u-sr-only">画像拡大表示</h3>
+      <button class="c-modal__close-btn" id="modal-close-btn" aria-label="閉じる">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <img src="" alt="" id="modal-image" class="c-modal__image">
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    (function() {
+      'use strict';
+
+      /**
+       * --------------------------------
+       * Theme (Dark/Light Mode)
+       * --------------------------------
+       */
+      const themeToggle = document.getElementById('theme-toggle');
+      const docElement = document.documentElement;
+
+      // OSのテーマ設定を優先し、localStorageに設定があればそれを適用
+      const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (currentTheme === 'dark') {
+        docElement.classList.add('dark-theme');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        docElement.classList.toggle('dark-theme');
+        const theme = docElement.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+      });
+
+      /**
+       * --------------------------------
+       * Works Filter
+       * --------------------------------
+       */
+      const filterContainer = document.getElementById('works-filter');
+      const worksGrid = document.getElementById('works-grid');
+      const workCards = worksGrid.querySelectorAll('.c-card');
+      
+      // 初期表示
+      workCards.forEach(card => card.classList.add('is-visible'));
+
+      if (filterContainer) {
+        const filterButtons = filterContainer.querySelectorAll('.c-filter-chip');
+        
+        filterContainer.addEventListener('click', (e) => {
+          const targetButton = e.target.closest('.c-filter-chip');
+          if (!targetButton) return;
+
+          const filter = targetButton.dataset.filter;
+          
+          // タブのARIA属性を更新
+          filterButtons.forEach(button => button.setAttribute('aria-pressed', 'false'));
+          targetButton.setAttribute('aria-pressed', 'true');
+
+          workCards.forEach(card => {
+            const tags = card.dataset.tags;
+            if (filter === 'all' || (tags && tags.includes(filter))) {
+              card.classList.add('is-visible');
+            } else {
+              card.classList.remove('is-visible');
+            }
+          });
+        });
+      }
+
+      /**
+       * --------------------------------
+       * Image Modal
+       * --------------------------------
+       */
+      const modal = document.getElementById('image-modal');
+      const modalImage = document.getElementById('modal-image');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+      let lastFocusedElement;
+
+      const openModal = (imgSrc, imgAlt) => {
+        lastFocusedElement = document.activeElement;
+        modalImage.src = imgSrc;
+        modalImage.alt = imgAlt;
+        modal.hidden = false;
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        modalCloseBtn.focus();
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+        }
+      };
+
+      worksGrid.addEventListener('click', (e) => {
+        const card = e.target.closest('.c-card');
+        if (card && card.dataset.modalSrc) {
+          openModal(card.dataset.modalSrc, card.dataset.modalAlt);
+        }
+      });
+
+      modalCloseBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Keyboard support for modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+        if (e.key === 'Tab' && modal.classList.contains('is-open')) {
+          // Focus trap (simple version)
+          if (e.shiftKey) {
+            if (document.activeElement === modalCloseBtn) {
+              e.preventDefault();
+              modalCloseBtn.focus(); // Keep focus on the close button
+            }
+          } else {
+            if (document.activeElement === modalCloseBtn) {
+              e.preventDefault();
+              modalCloseBtn.focus(); // Keep focus on the close button
+            }
+          }
+        }
+      });
+
+      /**
+       * --------------------------------
+       * Contact Form Validation
+       * --------------------------------
+       */
+      const form = document.getElementById('contact-form');
+      const formMessage = document.getElementById('form-message');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          formMessage.textContent = '';
+          formMessage.className = 'c-form__message';
+          
+          const name = form.elements.name.value.trim();
+          const email = form.elements.email.value.trim();
+          const message = form.elements.message.value.trim();
+
+          if (!name || !email || !message) {
+            formMessage.textContent = 'すべての項目を入力してください。';
+            formMessage.classList.add('c-form__message--error');
+            return;
+          }
+          
+          // Demo: Show success message
+          formMessage.textContent = 'お問い合わせありがとうございます。メッセージは正常に送信されました。（これはデモです）';
+          formMessage.classList.add('c-form__message--success');
+          form.reset();
+        });
+      }
+
+      /**
+       * --------------------------------
+       * Smooth Scroll for Anchor Links
+       * --------------------------------
+       */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          // スキップリンクや、href="#"だけのリンクは除外
+          if (href === '#' || href === '#main') return;
+
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
