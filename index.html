@@ -153,6 +153,7 @@
       --color-border: #e0e0e0;
       --color-accent: #ff3d77;
       --color-focus-ring: #8c63f7;
+      --color-text-shadow: rgba(0, 0, 0, 0.1);
 
       /* Typography */
       --font-size-xs: 0.75rem;   /* 12px */
@@ -190,7 +191,10 @@
       background-color: var(--color-background);
       color: var(--color-text);
       transition: background-color var(--transition-base), color var(--transition-base);
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cpath fill='%23e0e0e0' d='M20 20.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z'/%3e%3c/svg%3e");
+    }
+
+    h1, h2, h3 {
+      text-shadow: 0 2px 4px var(--color-text-shadow);
     }
 
     /* 4. Layout */
@@ -639,6 +643,7 @@
       --color-border: #333;
       --color-accent: #fde047; /* Yellow accent color */
       --color-focus-ring: #6a32ee;
+      --color-text-shadow: rgba(0, 0, 0, 0.3);
     }
     .dark-theme body {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3e%3cpath fill='%23333' d='M20 20.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z'/%3e%3c/svg%3e");
@@ -662,6 +667,7 @@
     .dark-theme .l-section__title,
     .dark-theme .c-card__title {
       color: var(--color-accent);
+      text-shadow: 0 0 8px rgba(253, 224, 71, 0.3);
     }
     .dark-theme .c-header__logo,
     .dark-theme .c-card__cta,
@@ -691,88 +697,9 @@
     .dark-theme .c-form__button:hover {
       background-color: #facc15; /* Darker yellow on hover */
     }
-  
-    /* 2.5 Accent Background Layers (added) */
-    .c-bg {
-      position: fixed;
-      inset: -10vh;
-      pointer-events: none;
-      z-index: -1;
-      background:
-        radial-gradient(40% 40% at 10% 10%, rgba(106, 50, 238, 0.18), transparent 60%),
-        radial-gradient(40% 40% at 90% 15%, rgba(255, 61, 119, 0.12), transparent 60%),
-        radial-gradient(50% 50% at 50% 100%, rgba(56, 189, 248, 0.10), transparent 60%);
-    }
-    .c-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0 1px, transparent 1px 24px),
-        repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0 1px, transparent 1px 24px);
-      mix-blend-mode: overlay;
-      opacity: 0.35;
-    }
-
-    /* Soft per-section vignettes */
-    .l-section { position: relative; }
-    .l-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(600px 300px at 8% 0%, rgba(106, 50, 238, 0.10), transparent 60%),
-        radial-gradient(500px 250px at 92% 100%, rgba(255, 61, 119, 0.08), transparent 60%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Hero glow ring */
-    .c-hero__image-wrapper { position: relative; }
-    .c-hero__image-wrapper::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: inherit;
-      background: radial-gradient(60% 60% at 50% 20%, rgba(106, 50, 238, 0.25), transparent 60%);
-      filter: blur(12px);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Dark theme tweaks */
-    .dark-theme .c-bg {
-      background:
-        radial-gradient(40% 40% at 12% 12%, rgba(140, 99, 247, 0.25), transparent 60%),
-        radial-gradient(40% 40% at 88% 20%, rgba(253, 224, 71, 0.18), transparent 60%),
-        radial-gradient(50% 50% at 50% 100%, rgba(34, 197, 94, 0.10), transparent 60%);
-    }
-    .dark-theme .c-bg::after {
-      background:
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 24px),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 24px);
-      opacity: 0.25;
-    }
-    .dark-theme .l-section::before {
-      background:
-        radial-gradient(600px 300px at 8% 0%, rgba(140, 99, 247, 0.18), transparent 60%),
-        radial-gradient(500px 250px at 92% 100%, rgba(253, 224, 71, 0.10), transparent 60%);
-    }
-    .dark-theme .c-hero__image-wrapper::before {
-      background: radial-gradient(60% 60% at 50% 20%, rgba(140, 99, 247, 0.35), transparent 60%);
-    }
-
-    /* Respect reduced motion (no animations added, but keep placeholder for future) */
-    @media (prefers-reduced-motion: reduce) {
-      .c-bg { will-change: auto; }
-    }
-
   </style>
 </head>
 <body>
-
-  <div class="c-bg" aria-hidden="true"></div>
-
 
   <a href="#main" class="c-skip-link">メインコンテンツへスキップ</a>
 
@@ -1000,7 +927,7 @@
         <h2 class="l-section__title">Contact</h2>
         <p style="text-align: center; margin-bottom: var(--space-lg);">ご依頼・ご相談はこちらからお気軽にご連絡ください。</p>
         
-        <form class="c-form" id="contact-form" novalidate>
+        <form class="c-form" id="contact-form" action="https://formspree.io/f/yurimaru4731@gmail.com" method="POST">
           <div class="c-form__group">
             <label for="name" class="c-form__label">お名前</label>
             <input type="text" id="name" name="name" class="c-form__input" required>
@@ -1167,33 +1094,41 @@
 
       /**
        * --------------------------------
-       * Contact Form Validation
+       * Contact Form Submission
        * --------------------------------
        */
       const form = document.getElementById('contact-form');
       const formMessage = document.getElementById('form-message');
 
       if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
           e.preventDefault();
           
-          formMessage.textContent = '';
-          formMessage.className = 'c-form__message';
+          const formData = new FormData(form);
           
-          const name = form.elements.name.value.trim();
-          const email = form.elements.email.value.trim();
-          const message = form.elements.message.value.trim();
+          try {
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
 
-          if (!name || !email || !message) {
-            formMessage.textContent = 'すべての項目を入力してください。';
+            formMessage.textContent = '';
+            formMessage.className = 'c-form__message';
+
+            if (response.ok) {
+              formMessage.textContent = 'お問い合わせありがとうございます。メッセージは正常に送信されました。';
+              formMessage.classList.add('c-form__message--success');
+              form.reset();
+            } else {
+              throw new Error('Network response was not ok.');
+            }
+          } catch (error) {
+            formMessage.textContent = 'メッセージの送信に失敗しました。時間をおいて再度お試しください。';
             formMessage.classList.add('c-form__message--error');
-            return;
           }
-          
-          // Demo: Show success message
-          formMessage.textContent = 'お問い合わせありがとうございます。メッセージは正常に送信されました。（これはデモです）';
-          formMessage.classList.add('c-form__message--success');
-          form.reset();
         });
       }
 
