@@ -160,9 +160,9 @@
       --font-size-sm: 0.875rem;  /* 14px */
       --font-size-base: 1rem;     /* 16px */
       --font-size-md: 1.125rem;  /* 18px */
-      --font-size-lg: 1.5rem;    /* 24px */
-      --font-size-xl: 2.25rem;   /* 36px */
-      --font-size-xxl: 3rem;     /* 48px */
+      --font-size-lg: 1.5rem;   /* 24px */
+      --font-size-xl: 2.25rem;    /* 36px */
+      --font-size-xxl: 3rem;    /* 48px */
       --font-weight-normal: 400;
       --font-weight-bold: 700;
 
@@ -738,10 +738,10 @@
         <div class="c-hero__image-wrapper">
         <!-- TODO: ヒーローイメージを差し替え -->
         <img src="images/hero-main.jpg" 
-            alt="松田拓丸のオリジナルTシャツデザイン" 
-           width="1600" height="900" 
-           class="c-hero__image"
-           loading="eager" decoding="async">
+             alt="メインビジュアル" 
+             width="1600" height="900" 
+             class="c-hero__image"
+             loading="eager" decoding="async">
         </div>
       </div>
     </section>
@@ -927,7 +927,11 @@
         <h2 class="l-section__title">Contact</h2>
         <p style="text-align: center; margin-bottom: var(--space-lg);">ご依頼・ご相談はこちらからお気軽にご連絡ください。</p>
         
-        <form class="c-form" id="contact-form" action="https://formspree.io/f/yurimaru4731@gmail.com" method="POST">
+        <!-- ========== ここを修正 ========== -->
+        <!-- Formspreeで取得したあなたのエンドポイントURLに書き換えてください -->
+        <form class="c-form" id="contact-form" action="https://formspree.io/f/mldwlepa" method="POST">
+        <!-- ============================= -->
+
           <div class="c-form__group">
             <label for="name" class="c-form__label">お名前</label>
             <input type="text" id="name" name="name" class="c-form__input" required>
@@ -1123,7 +1127,14 @@
               formMessage.classList.add('c-form__message--success');
               form.reset();
             } else {
-              throw new Error('Network response was not ok.');
+              // Formspreeからのエラーレスポンスを処理
+              const data = await response.json();
+              if (Object.hasOwn(data, 'errors')) {
+                  formMessage.textContent = data["errors"].map(error => error["message"]).join(", ");
+              } else {
+                  formMessage.textContent = 'メッセージの送信に失敗しました。時間をおいて再度お試しください。';
+              }
+              formMessage.classList.add('c-form__message--error');
             }
           } catch (error) {
             formMessage.textContent = 'メッセージの送信に失敗しました。時間をおいて再度お試しください。';
